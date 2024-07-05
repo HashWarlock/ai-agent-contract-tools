@@ -1,18 +1,18 @@
 <div align="center">
-  <a href="https://github.com/Phala-Network/ai-agent-template-anthropic">
-    <h1>AI Agent Contract Template with Anthropic</h1>
+  <a href="https://github.com/Phala-Network/ai-agent-contract-tools">
+    <h1>AI Agent Contract Template Tools</h1>
     <img height="320" src="./public/AI-Agent-Contract.jpg" />
     <br />
   </a>
   <p align="center">
     Host your AI Agent Contract on Phala's decentralized serverless cloud.
     <br />
-    <a href="https://github.com/Phala-Network/ai-agent-template-redpill"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Phala-Network/ai-agent-contract-tools"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0?key=c0c0105ba56276cd&chatQuery=When%20did%20humans%20land%20on%20the%20moon">View Demo</a>
     ·
-    <a href="https://github.com/Phala-Network/ai-agent-template-redpill/issues">Report Bug</a>
+    <a href="https://github.com/Phala-Network/ai-agent-contract-tools/issues">Report Bug</a>
     ·
     <a href="https://discord.gg/DXGGJajW">Discord</a>
   </p>
@@ -27,7 +27,7 @@
   <img height="240" src="https://www.jlwranglerforums.com/forum/attachments/zoolander-gif.325299/">
 </div>
 
-The Anthropic AI Agent template is a **MINIMAL** template to build an AI Agent that can be hosted on Phala Network's decentralized hosting protocol. Unlike Vercel or other FaaS, it allows you to publish your AI Agent compiled code to IPFS and hosts it on a fully decentralized FaaS cloud with the following benefits:
+The AI Agent Contract Tools template is a **MINIMAL** template to build an AI Agent that can be hosted on Phala Network's decentralized hosting protocol. Unlike Vercel or other FaaS, it allows you to publish your AI Agent compiled code to IPFS and hosts it on a fully decentralized FaaS cloud with the following benefits:
 
 - 💨 Ship Fast: Build and ship with familiar toolchain in minutes
 - ⛑️ Secure: Execution guarded by rock solid TEE / Intel SGX
@@ -44,15 +44,14 @@ npm install
 ```
 
 ### Testing Locally
-Create `.env` file and add your RedPill API Key
+Create `.env` file
 ```shell
 cp .env.local .env
 ```
-Get an Anthropic API Key from [Anthropic](https://console.anthropic.com/login?returnTo=%2F%3F)
 
-In `.env` file replace `YOUR_ANTHROPIC_KEY` with your API Key
+In `.env` file replace `SECRET_SALT` with your own secret salt
 ```text
-ANTHROPIC_API_KEY="YOUR_ANTHROPIC_KEY"
+SECRET_SALT="SECRET_SALT"
 ```
 
 Build your Agent
@@ -67,77 +66,70 @@ npm run test
 
 Expected Test Results
 ```shell
-INPUT: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{"chatQuery":["Who are you?"]},"secret":{"anthropicApiKey":"YOUR_ANTHROPIC_KEY"},"headers":{}}
-GET RESULT: {
-  status: 200,
-  body: '\n' +
-    '    <!DOCTYPE html>\n' +
-    '    <html lang="en">\n' +
-    '        <head>\n' +
-    '            <meta charset="utf-8" />\n' +
-    '            <title>AI Agent Contract Demo UI</title>\n' +
-    '        </head>\n' +
-    '        <body>\n' +
-    '            <div align="center">\n' +
-    '                <p>"Anthropic AI Agent Contract hosted on <a href="https://github.com/Phala-Network/ai-agent-template-anthropic">Phala Network</a>, an AI Coprocessor for hosting AI Agents."</p>\n' +
-    '                <img src="https://i.imgur.com/8B3igON.png" width="600" alt="AI Agent Contract" />\n' +
-    "                <p>I am an AI assistant created by Anthropic to be helpful, harmless, and honest. I don't have a physical form or avatar - I'm a language model trained to engage in conversations and help with tasks. How can I assist you today?</p>\n" +
-    '            </div>\n' +
-    '        </body>\n' +
-    '    </html>',
-  headers: {
-    'Content-Type': 'text/html; charset=UTF-8',
-    'Access-Control-Allow-Origin': '*'
-  }
-}
+> phat-gpt-template@0.0.1 test
+> tsx src/test.ts
 
 
-INPUT: {"method":"POST","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{"chatQuery":["When did humans land on the moon?"]},"secret":{"anthropicApiKey":"YOUR_ANTHROPIC_KEY"},"headers":{},"body":"{\"untrustedData\":{\"fid\":2,\"url\":\"https://fcpolls.com/polls/1\",\"messageHash\":\"0xd2b1ddc6c88e865a33cb1a565e0058d757042974\",\"timestamp\":1706243218,\"network\":1,\"buttonIndex\":2,\"castId\":{\"fid\":226,\"hash\":\"0xa48dd46161d8e57725f5e26e34ec19c13ff7f3b9\"}},\"trustedData\":{\"messageBytes\":\"d2b1ddc6c88e865a33cb1a565e0058d757042974...\"}}"}
-POST RESULT: {
-  status: 200,
-  body: '\n' +
-    '    <!DOCTYPE html>\n' +
-    '    <html lang="en">\n' +
-    '        <head>\n' +
-    '            <meta charset="utf-8" />\n' +
-    '            <title>AI Agent Contract Demo UI</title>\n' +
-    '        </head>\n' +
-    '        <body>\n' +
-    '            <div align="center">\n' +
-    '                <p>"Anthropic AI Agent Contract hosted on <a href="https://github.com/Phala-Network/ai-agent-template-anthropic">Phala Network</a>, an AI Coprocessor for hosting AI Agents."</p>\n' +
-    '                <img src="https://i.imgur.com/8B3igON.png" width="600" alt="AI Agent Contract" />\n' +
-    '                <p>The first time humans landed on the moon was on July 20, 1969, during the Apollo 11 mission. American astronauts Neil Armstrong and Buzz Aldrin became the first humans to set foot on the lunar surface, while their colleague Michael Collins orbited the moon in the command module.\n' +
-    '\n' +
-    "After this initial landing, there were five more successful crewed moon landings as part of NASA's Apollo program:\n" +
-    '\n' +
-    '1. Apollo 12 - November 19, 1969\n' +
-    '2. Apollo 14 - February 5, 1971\n' +
-    '3. Apollo 15 - July 30, 1971\n' +
-    '4. Apollo 16 - April 21, 1972\n' +
-    '5. Apollo 17 - December 11, 1972\n' +
-    '\n' +
-    'Apollo 17 was the last crewed mission to land on the moon to date. Since then, no human has set foot on the lunar surface, although there have been numerous uncrewed missions to study the moon.</p>\n' +
-    '            </div>\n' +
-    '        </body>\n' +
-    '    </html>',
-  headers: {
-    'Content-Type': 'text/html; charset=UTF-8',
-    'Access-Control-Allow-Origin': '*'
-  }
-}
+NOTE: Signing data must be tested in Sidevm Playground. Use this as the arg value to test
+- args: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{"data":["Hello MOON!"],"type":["sign"]},"secret":{"secretSalt":"SALTY"},"headers":{}}
+
+To test in the SideVM playground go to https://phat.phala.network/contracts/view/0xf0a398600f02ea9b47a86c59aed61387e450e2a99cb8b921cd1d46f734e45409
+
+Connect you polkadot.js account and select 'run_js' with the parameters:
+- engine: SidevmQuickJSWithPolyfill
+- js_code: Source code text of dist/index.ts
+- args: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{},"secret":{"secretSalt":"SALTY"},"headers":{}}
+Watch video here for to see the visual steps of testing in Sidevm playground: https://www.youtube.com/watch?v=fNqNeLfFFME
+
+Make sure to replace queries and secret with your values compatible with your AI Agent Contract.
+
+NOTE:
+Signing data must be tested in Sidevm Playground. Use this as the arg value to test
+- args: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{"data":["Hello MOON!"],"type":["sign"]},"secret":{"secretSalt":"SALTY"},"headers":{}}
+
+NOTE:
+Verifying data must be tested in Sidevm Playground. Use this as the arg value to test
+- args: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{"data":["Hello MOON!"],"signature":["REPLACE_WITH_SIGNATURE"],"type":["verify"]},"secret":{"secretSalt":"SALTY"},"headers":{}}
 ```
 
 ### Publish Your AI Agent
 
 Upload your compiled AI Agent code to IPFS.
 ```shell
-npm run publish
+npm run publish-agent
 ```
 
 Upon a successful upload, the command should show the URL to access your AI Agent.
-> AI Agent deployed at: https://agents.phala.network/ipfs/QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0
->
-> Make sure to add your secrets to ensure your AI Agent works properly.
+```shell
+✓ Compiled successfully.
+  69.43 KB  dist/index.js
+Running command: npx thirdweb upload dist/index.js
+This may require you to log into thirdweb and will take some time to publish to IPFS...
+
+    $$\     $$\       $$\                 $$\                         $$\       
+    $$ |    $$ |      \__|                $$ |                        $$ |      
+  $$$$$$\   $$$$$$$\  $$\  $$$$$$\   $$$$$$$ |$$\  $$\  $$\  $$$$$$\  $$$$$$$\  
+  \_$$  _|  $$  __$$\ $$ |$$  __$$\ $$  __$$ |$$ | $$ | $$ |$$  __$$\ $$  __$$\ 
+    $$ |    $$ |  $$ |$$ |$$ |  \__|$$ /  $$ |$$ | $$ | $$ |$$$$$$$$ |$$ |  $$ |
+    $$ |$$\ $$ |  $$ |$$ |$$ |      $$ |  $$ |$$ | $$ | $$ |$$   ____|$$ |  $$ |
+    \$$$$  |$$ |  $$ |$$ |$$ |      \$$$$$$$ |\$$$$$\$$$$  |\$$$$$$$\ $$$$$$$  |
+     \____/ \__|  \__|\__|\__|       \_______| \_____\____/  \_______|\_______/ 
+
+ 💎 thirdweb v0.14.12 💎
+
+- Uploading file to IPFS. This may take a while depending on file sizes.
+
+✔ Successfully uploaded file to IPFS.
+✔ Files stored at the following IPFS URI: ipfs://QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY
+✔ Open this link to view your upload: https://bafybeiahxlsblg3nwyrziavih7ziviherm7zph5atxxxvdyv3pnao7tzae.ipfs.cf-ipfs.com/
+
+AI Agent Contract deployed at: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY
+
+Make sure to add your secrets to ensure your AI-Agent works properly. Use syntax:
+
+
+curl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY", "data": {"secretSalt": "SECRET_SALT"}}'
+```
 
 <details>
 <summary>New to thirdweb?</summary>
@@ -173,14 +165,14 @@ By default, all the compiled JS code is visible for anyone to view if they look 
 The steps to add a `secret` is simple. We will add the Anthropic API Key in this example by creating a secret JSON object with the `anthropicApiKey`:
 
 ```json
-{"anthropicApiKey": "<ANTHROPIC_API_KEY>"}
+{"secretSalt": "<SECRET_SALT>"}
 ```
 
 Then in your frame code, you will be able to access the secret key via `req.secret` object:
 
 ```js
-async function POST(req: Request): Promise<Response> {
-    const apiKey = req.secret?.apiKey
+async function GET(req: Request): Promise<Response> {
+    const secretSalt = req.secret?.secretSalt
 }
 ```
 
@@ -191,7 +183,7 @@ Use `curl` to `POST` your secrets to `https://agents.phala.network/vaults`. Repl
 
 The command will look like this:
 ```shell
-curl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "IPFS_CID", "data": {"anthropicApiKey": "<ANTHROPIC_API_KEY>"}}'
+curl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "IPFS_CID", "data": {"secretSalt": "<SECRET_SALT>"}}'
 # Output:
 # {"token":"e85ae53d2ba4ca8d","key":"e781ef31210e0362","succeed":true}
 ```
@@ -205,7 +197,7 @@ curl https://agents.phala.network/vaults/<key>/<token>
 
 Expected output:
 ```shell
-{"data":{"anthropicApiKey":"<ANTHROPIC_API_KEY>"},"succeed":true}
+{"data":{"secretSalt":"<SECRET_SALT>"},"succeed":true}
 ```
 
 If you are using secrets, make sure that your URL is set in the following syntax where `cid` is the IPFS CID of your compiled JS file and `key` is the `key` from adding secrets to your vault.
@@ -214,16 +206,17 @@ https://agents.phala.network/ipfs/<cid>?key=<key>
 ```
 
 Example:
-https://agents.phala.network/ipfs/QmWw8neMw6CDTQzPNho7JQX3N9zLCcGQSdG5xXQw3tX7v3/0?key=f1a3aacb47d3a78&chatQuery=When%20did%20humans%20land%20on%20the%20moon
+Derived ECDSA Key: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb
+Sign 'Hello MOON!': https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb&type=sign&data=Hello%20Moon!
+Verify Signature: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb&type=verify&data=Hello%20Moon!&signature=0x372f08f2efebcff0ac8f9ae0dcc6662bf5aeb9e54cf40e86043cc71bb18fd806688f6956b8a31774ef5249d9bea878905c616c117fc27d15b1a2340d10ba90df1c
 
 </details>
 
 ### Access Queries
-To help create custom logic, we have an array variable named `queries` that can be accessed in the `Request` class. To access the `queries` array variable `chatQuery` value at index `0`, the syntax will look as follows:
+To help create custom logic, we have an array variable named `queries` that can be accessed in the `Request` class. To access the `queries` array variable `type` value at index `0`, the syntax will look as follows:
 ```typescript
-const query = req.queries.chatQuery[0] as string;
+const type = req.queries.type[0] as string;
 ```
-The example at https://agents.phala.network/ipfs/QmWw8neMw6CDTQzPNho7JQX3N9zLCcGQSdG5xXQw3tX7v3/0?key=f1a3aacb47d3a78&chatQuery=When%20did%20humans%20land%20on%20the%20moon will have a value of `When did humans land on the moon`. `queries` can have any field name, so `chatQuery` is just an example of a field name and not a mandatory name, but remember to update your `index.ts` file logic to use your expected field name.
 
 
 ## FAQ
